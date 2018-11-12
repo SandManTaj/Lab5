@@ -5,10 +5,9 @@
 
 using namespace std;
 
-void heapify(vector<int> &arr)
+void heapify(vector<int> &arr, int l, int r)
 {
-	int length = arr.size();
-	int i = arr.size() - 1;
+	int i = r;
 	while (i > 0)
 	{
 		int j = i;
@@ -24,16 +23,16 @@ void heapify(vector<int> &arr)
 
 }
 
-void heapSort(vector<int> arr)
+void heapSort(vector<int> &arr)
 {
-	int length = arr.size();
+	int length = arr.size() - 1;
 	int temp;
-	for (int i = 0; i < length; i++)
+	for (int i = 0; i <= length; i++)
 	{
-		heapify(arr);
+		heapify(arr, 0, length-i);
 		temp = arr[0];
 		arr.erase(arr.begin());
-		cout << temp << " ";
+		arr.push_back(temp);
 	}
 }
 
@@ -47,8 +46,8 @@ int main()
 		vec.push_back(rand() % 201 - 100);
 	}
 	heapSort(vec);
-	/*for (int i = 0; i < vec.size(); i++)
+	for (int i = 0; i < vec.size(); i++)
 	{
 		cout << vec[i] << " ";
-	}*/
+	}
 }
