@@ -32,7 +32,7 @@ void heapSort(vector<int> &arr)
 		heapify(arr, 0, length-i);
 		temp = arr[0];
 		arr.erase(arr.begin());
-		arr.push_back(temp);
+		arr.insert(arr.end() - i, temp);
 	}
 }
 
